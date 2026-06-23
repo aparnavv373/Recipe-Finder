@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosClose } from "react-icons/io";
 import Hat from '../assets/hat.png'
 function HomeNavBar(){
+    const navigate=useNavigate()
     const[isopen,setIsOpen]=useState(false)
 return(
      <nav className="bg-[white]    rounded-3xl  px-6 py-3 shadow-lg mb-8 ">
                 <div className=' flex items-center justify-between w-full'>
-                <img src={Hat} alt="Recipe Finder Logo" className='w-12 rounded-full  '></img>
+                <img src={Hat} alt="Recipe Finder Logo" className='w-12 rounded-full  ' onClick={()=>navigate("/")}></img>
                  <ul className="md:flex gap-4 items-center hidden font-bold ">
                     <li className='rounded-full hover:bg-[#297B41] p-4 py-1 hover:text-white'><Link to="/about">About</Link></li>
                     <li className='rounded-full hover:bg-[#297B41] p-4 py-1 hover:text-white'><Link to="/signup">Signup</Link></li>
