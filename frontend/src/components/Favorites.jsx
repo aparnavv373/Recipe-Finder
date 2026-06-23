@@ -86,7 +86,7 @@ return(
 {!loadingFavorites && favorites.favorites.length === 0 && (
   <div className="text-center text-gray-400 mt-16">
     No favorite recipes yet 🍲
-    <img src={femaleChef} className="w-48 mx-auto mt-6 opacity-70"></img>
+    <img src={Chef} className="w-48 mx-auto mt-6 opacity-70"></img>
   </div>
 )}
        
