@@ -1,4 +1,4 @@
-import femaleChef from '../assets/female-chef.png'
+import Chef from '../assets/chef.png'
 import { useEffect } from 'react'
 import { MdSearch } from "react-icons/md";
 import Navbar from './Navbar';
@@ -73,7 +73,7 @@ return(
         <div className='w-full flex flex-col gap-6 items-center lg:items-start text-center lg:text-left'>
         <h1 className='w-full text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight'>Cook Something <span className='text-[#297B41] block'>Amazing Today</span></h1>
         <p className='text-gray-600 text-lg '>Tell our AI chef what you'd like to eat and get a personalized recipe in seconds.</p>
-        <img src={femaleChef} className='w-72 sm:w-80 md:w-96 lg:w-[450px] mx-auto lg:mx-0 hover:scale-105 transition duration-300'></img>
+        <img src={Chef} className='w-72 sm:w-80 md:w-96 lg:w-[450px] mx-auto lg:mx-0 hover:scale-105 transition duration-300'></img>
         </div>
         <div className=''>
             <div className='bg-white w-full max-w-4xl p-10 md:p-12 rounded-lg shadow-black/10  flex flex-col gap-6'>
