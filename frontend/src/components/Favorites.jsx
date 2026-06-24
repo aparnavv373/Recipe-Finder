@@ -10,13 +10,14 @@ function Favorites({setError,setResult}){
     const[favorites,setFavorites]=useState({page:1,limit:8,favorites:[]})
     const[loadingFavorites,setLoadingFavorites]=useState(true)
     const [openingRecipe, setOpeningRecipe] = useState(false)
+    const API_URL=import.meta.env.VITE_API_URL
     const[page,setPage]=useState(1)
     const navigate=useNavigate()
     const handlefavorites=async()=>{
         try{
             setLoadingFavorites(true)
             const token=localStorage.getItem("token")
-            const response=await fetch(`http://127.0.0.1:8000/favorites?page=${page}&limit=8`,{
+            const response=await fetch(`${API_URL}/favorites?page=${page}&limit=8`,{
                 headers:{
                     'Authorization':`Bearer ${token}`
                 }
@@ -44,7 +45,7 @@ function Favorites({setError,setResult}){
         try{
             setOpeningRecipe(true)
             const token=localStorage.getItem("token")
-            const response=await fetch(`http://127.0.0.1:8000/details/${recipe_id}`,{
+            const response=await fetch(`${API_URL}/details/${recipe_id}`,{
                 headers:{
                     'Authorization':`Bearer ${token}`
                 }

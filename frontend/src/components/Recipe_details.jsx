@@ -13,6 +13,7 @@ function Recipe_details({result,loading,setLoading,error,setError}){
     const[isLiked,setIsLiked]=useState(result?.is_favorite||false)
     const[activeTab,setActiveTab]=useState("ingredients")
     console.log(result?.recipe?.steps)
+    const API_URL=import.meta.env.VITE_API_URL
   
     if (!result) {
   return <div>No recipe found</div>
@@ -24,7 +25,7 @@ function Recipe_details({result,loading,setLoading,error,setError}){
             setLoading(true)
             const token=localStorage.getItem("token")
        
-            const response=await fetch(`http://127.0.0.1:8000/favorites/${id}`,{
+            const response=await fetch(`${API_URL}/favorites/${id}`,{
                 method:'POST',
                 headers:{
                     'Authorization':`Bearer ${token}` ,
@@ -58,7 +59,7 @@ function Recipe_details({result,loading,setLoading,error,setError}){
 
             setLoading(true)
             const token=localStorage.getItem("token")
-            const response=await fetch(`http://127.0.0.1:8000/favorites/${id}`,{
+            const response=await fetch(`${API_URL}/favorites/${id}`,{
                 method:'DELETE',
                 headers:{
                     'Authorization':`Bearer ${token}`

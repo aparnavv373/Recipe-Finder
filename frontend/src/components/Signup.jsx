@@ -11,6 +11,7 @@ function Signup(){
   const[passworderror,setPasswordError]=useState("")
   const[emailerror,setEmailError]=useState("") 
   const[error,setError]=useState("")
+  const API_URL=import.meta.env.VITE_API_URL
   const navigate=useNavigate()
   const handleSend=async () => {
      setEmailError("")
@@ -31,7 +32,7 @@ function Signup(){
          
       try{
        
-          const response=await fetch("http://127.0.0.1:8000/signup",{
+          const response=await fetch(`${API_URL}/signup`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',

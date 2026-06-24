@@ -10,13 +10,13 @@ function History({setError,setResult}){
     const[history,setHistory]=useState({page:1,limit:8,history:[]})
     const [loadingHistory, setLoadingHistory] = useState(true)
     const[page,setPage]=useState(1)
-
+    const API_URL=import.meta.env.VITE_API_URL
     const navigate=useNavigate()
     const handlehistory=async()=>{
         try{
             setLoadingHistory(true)
             const token=localStorage.getItem("token")
-            const response=await fetch(`http://127.0.0.1:8000/history?page=${page}&limit=8`,{
+            const response=await fetch(`${API_URL}/history?page=${page}&limit=8`,{
                   headers:{
                     'Authorization':`Bearer ${token}`
                 }
@@ -44,7 +44,7 @@ useEffect(()=>{
     const handlehistorydetails=async(recipe_id)=>{
         try{
             const token=localStorage.getItem("token")
-            const response=await fetch(`http://127.0.0.1:8000/details/${recipe_id}`,{
+            const response=await fetch(`${API_URL}/details/${recipe_id}`,{
                 headers:{
                     'Authorization':`Bearer ${token}`
                 }
