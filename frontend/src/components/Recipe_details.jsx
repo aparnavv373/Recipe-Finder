@@ -12,7 +12,8 @@ function Recipe_details({result,loading,setLoading,error,setError}){
     const navigate=useNavigate()
     const[isLiked,setIsLiked]=useState(result?.is_favorite||false)
     const[activeTab,setActiveTab]=useState("ingredients")
-    console.log(result)
+    console.log(result?.recipe?.steps)
+  
     if (!result) {
   return <div>No recipe found</div>
 }
@@ -87,8 +88,7 @@ function Recipe_details({result,loading,setLoading,error,setError}){
     }
      }
     
- 
- console.log(result.recipe.steps)
+
 return(
     <div className='min-h-screen bg-[#D3EEE1]  p-6 '>
      <Navbar/>
@@ -184,7 +184,9 @@ return(
 
                          <ol className=" list-decimal list-inside space-y-3 mt-6">
 
-            {result.recipe.steps.map((step,index)=><li className="text-[black]" key={index}>{step}</li>)}
+            {result.recipe.steps.map((step,index)=><li className="text-[blacl]" key={index}>
+  {typeof step === "string" ? step : step.step}
+</li>)}
 
         </ol>
 
